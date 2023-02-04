@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/workspaces/Cooking-Recipe/Receipts/Receipts.csproj": {}
+    "/workspaces/Cooking-Recipe-sre/Receipts/Receipts.csproj": {}
   },
   "projects": {
-    "/workspaces/Cooking-Recipe/Receipts/Receipts.csproj": {
+    "/workspaces/Cooking-Recipe-sre/Receipts/Receipts.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/workspaces/Cooking-Recipe/Receipts/Receipts.csproj",
+        "projectUniqueName": "/workspaces/Cooking-Recipe-sre/Receipts/Receipts.csproj",
         "projectName": "Receipts",
-        "projectPath": "/workspaces/Cooking-Recipe/Receipts/Receipts.csproj",
+        "projectPath": "/workspaces/Cooking-Recipe-sre/Receipts/Receipts.csproj",
         "packagesPath": "/home/vscode/.nuget/packages/",
-        "outputPath": "/workspaces/Cooking-Recipe/Receipts/obj/",
+        "outputPath": "/workspaces/Cooking-Recipe-sre/Receipts/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/vscode/.nuget/NuGet/NuGet.Config"
@@ -105,7 +105,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.301/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.405/RuntimeIdentifierGraph.json"
         }
       }
     }
