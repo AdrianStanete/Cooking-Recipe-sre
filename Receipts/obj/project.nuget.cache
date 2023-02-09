@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "I8IMia+52BDp4umoKdI4feeZxEi9uCX5Cg7kagTT6m6asyd29I+Gwfu5CnCzzhmqyi6aK1VlP3OGE8Ne3bTADg==",
+  "dgSpecHash": "Df/UfSZVlDG/d8v4HcJlEYJCOFQW3jn1hUiP9ArRzggDQZYe9JV/AT6S8/NOlQGASDnDCPaRSMLkPp2bH3Xtzg==",
   "success": true,
-  "projectFilePath": "/workspaces/Cooking-Recipe/Receipts/Receipts.csproj",
+  "projectFilePath": "/workspaces/Cooking-Recipe-sre/Receipts/Receipts.csproj",
   "expectedPackageFiles": [
     "/home/vscode/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
     "/home/vscode/.nuget/packages/microsoft.aspnetcore.authorization/5.0.0/microsoft.aspnetcore.authorization.5.0.0.nupkg.sha512",

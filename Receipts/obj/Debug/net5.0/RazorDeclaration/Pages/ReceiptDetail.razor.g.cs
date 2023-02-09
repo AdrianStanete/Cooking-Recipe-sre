@@ -10,98 +10,98 @@ namespace Receipts.Pages
     using System.Collections.Generic;
     using System.Threading.Tasks;
 #nullable restore
-#line 1 "/workspaces/Cooking-Recipe/Receipts/_Imports.razor"
+#line 1 "/workspaces/Cooking-Recipe-sre/Receipts/_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "/workspaces/Cooking-Recipe/Receipts/_Imports.razor"
+#line 2 "/workspaces/Cooking-Recipe-sre/Receipts/_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "/workspaces/Cooking-Recipe/Receipts/_Imports.razor"
+#line 3 "/workspaces/Cooking-Recipe-sre/Receipts/_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "/workspaces/Cooking-Recipe/Receipts/_Imports.razor"
+#line 4 "/workspaces/Cooking-Recipe-sre/Receipts/_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "/workspaces/Cooking-Recipe/Receipts/_Imports.razor"
+#line 5 "/workspaces/Cooking-Recipe-sre/Receipts/_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "/workspaces/Cooking-Recipe/Receipts/_Imports.razor"
+#line 6 "/workspaces/Cooking-Recipe-sre/Receipts/_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "/workspaces/Cooking-Recipe/Receipts/_Imports.razor"
+#line 7 "/workspaces/Cooking-Recipe-sre/Receipts/_Imports.razor"
 using Microsoft.AspNetCore.Components.Web.Virtualization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "/workspaces/Cooking-Recipe/Receipts/_Imports.razor"
+#line 8 "/workspaces/Cooking-Recipe-sre/Receipts/_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "/workspaces/Cooking-Recipe/Receipts/_Imports.razor"
+#line 9 "/workspaces/Cooking-Recipe-sre/Receipts/_Imports.razor"
 using Receipts;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "/workspaces/Cooking-Recipe/Receipts/_Imports.razor"
+#line 10 "/workspaces/Cooking-Recipe-sre/Receipts/_Imports.razor"
 using Receipts.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "/workspaces/Cooking-Recipe/Receipts/Pages/ReceiptDetail.razor"
+#line 3 "/workspaces/Cooking-Recipe-sre/Receipts/Pages/ReceiptDetail.razor"
 using Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "/workspaces/Cooking-Recipe/Receipts/Pages/ReceiptDetail.razor"
+#line 4 "/workspaces/Cooking-Recipe-sre/Receipts/Pages/ReceiptDetail.razor"
 using System;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "/workspaces/Cooking-Recipe/Receipts/Pages/ReceiptDetail.razor"
+#line 5 "/workspaces/Cooking-Recipe-sre/Receipts/Pages/ReceiptDetail.razor"
 using Microsoft.AspNetCore.Components;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "/workspaces/Cooking-Recipe/Receipts/Pages/ReceiptDetail.razor"
+#line 6 "/workspaces/Cooking-Recipe-sre/Receipts/Pages/ReceiptDetail.razor"
 using System.Linq;
 
 #line default
@@ -116,7 +116,7 @@ using System.Linq;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 59 "/workspaces/Cooking-Recipe/Receipts/Pages/ReceiptDetail.razor"
+#line 59 "/workspaces/Cooking-Recipe-sre/Receipts/Pages/ReceiptDetail.razor"
        
     [Parameter]
     public string Id { get; set; }
