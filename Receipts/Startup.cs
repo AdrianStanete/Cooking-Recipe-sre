@@ -32,6 +32,9 @@ namespace Receipts
         public void ConfigureServices(IServiceCollection services)
         {
             var password = Environment.GetEnvironmentVariable("dbpassword");
+            var DATABASE_SERVER = Environment.GetEnvironmentVariable("DATABASE_SERVER");
+            var DATABASE_NAME = Environment.GetEnvironmentVariable("DATABASE_NAME");
+            var DATABASE_PASSWORD = Environment.GetEnvironmentVariable("DATABASE_PASSWORD");
             services.AddDbContext<DataContext>(options =>
                  options.UseNpgsql($"Server={DATABASE_SERVER};Database={DATABASE_NAME};Uid=postgres;Pwd={DATABASE_PASSWORD};Port=5432"));
             //services.AddDbContext<DataContext>(options =>

@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: receipts-config
+data:
+  DATABASE_SERVER: postgres-postgresql
+  DB_PORT: "5432"
+  DATABASE_NAME: cookingapp
+  USER_NAME: cookingapp
+  DATABASE_PASSWORD: supermegapassword

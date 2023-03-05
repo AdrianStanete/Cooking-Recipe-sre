@@ -15,9 +15,28 @@ spec:
         image: adrianstanete/receipts-image:latest
         ports:
         - containerPort: 80
+        envFrom:
+        - configMapRef:
+            name: receipts-config
         env:
         - name: ASPNETCORE_URLS
           value: http://*:80
+        - name: DB_HOST
+          value: postgres
+        - name: DB_PORT
+          value: "5432"
+        - name: USER_NAME #from the DB
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secret
+              key: USER_NAME
+        - name: USER_PASSWORD #from the DB
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secret
+              key: USER_PASSWORD
+
+
   selector:
     matchLabels:
       app: receipts
