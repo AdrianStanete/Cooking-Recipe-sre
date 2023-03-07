@@ -3,8 +3,8 @@ kind: Ingress
 metadata:
   name: cookingapp-ingress
   namespace: cookingapp
-  annotations:
-    kubernetes.io/ingress.class: "nginx"
+#  annotations:
+#    kubernetes.io/ingress.class: "nginx"
 spec:
   ingressClassName: nginx
   rules:
@@ -17,4 +17,4 @@ spec:
           service:
             name: receipts
             port:
-              name: http
+              number: 80
