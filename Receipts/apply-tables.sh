@@ -1,14 +1,11 @@
 #!/bin/bash
 
 # Set the PostgreSQL connection information
-PGHOST=localhost
-PGDATABASE=cookingapp
-PGUSER=cookingapp
-PGPASSWORD=supermegapassword
-PGPORT=5432
+kubectl port-forward --namespace cookingapp svc/postgres-postgresql 5432:5432 &
+    PGPASSWORD="$POSTGRES_PASSWORD" psql --host 127.0.0.1 -U cookingapp -d cookingapp -p 5432
 
 # Create the tables and insert data using the psql command
-psql -h $PGHOST -d $PGDATABASE -U $PGUSER -p $PGPORT << EOF
+psql << EOF
 CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
     "MigrationId" character varying(150) NOT NULL,
     "ProductVersion" character varying(32) NOT NULL,
@@ -62,3 +59,4 @@ CREATE INDEX "IX_StepRecipe_RecipeId1" ON "StepRecipe" ("RecipeId1");
 INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
 VALUES ('20210313193344_InitialCreate', '5.0.1');
 EOF
+\q

@@ -10,4 +10,4 @@ kubectl apply -f ../prometheus/kube-prometheus/manifests/
 kubectl apply -f ../dnsutils/dnsutils-namespace.yml
 kubectl -n dnsutils apply -f ../dnsutils/dnsutils.yml
 #Nginx-ingress
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
+#kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml

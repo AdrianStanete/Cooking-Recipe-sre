@@ -4,15 +4,22 @@
     #use docker tag  (cooking image is haissamfawaz/cooking-recipe-image:latest)
 BRANCH_NAME="$(git rev-parse --abbrev-ref HEAD)"
 COMMIT_HASH="$(git rev-parse --short HEAD)"
-IMAGE_NAME="myproject"
+IMAGE_NAME="adrianstanete/receipts-image"
 TAG_NAME="$BRANCH_NAME-$COMMIT_HASH"
-#TEST echo image name is $IMAGE_NAME
-#TEST echo the tag name is $TAG_NAME
+echo image name is $IMAGE_NAME
+echo the tag name is $TAG_NAME
+docker tag adrianstanete/receipts-image:arm $IMAGE_NAME:$TAG_NAME
+docker push $IMAGE_NAME:$TAG_NAME
+docker pull $IMAGE_NAME:$TAG_NAME
+kind load docker-image $IMAGE_NAME:$TAG_NAME
 docker build -t "$IMAGE_NAME:$TAG_NAME" .
 
+
 #3- change the image on values.yaml
+export IMAGE_NAME="adrianstanete/receipts-image"
 export TAG_NAME="$BRANCH_NAME-$COMMIT_HASH"
     cd kubernetes/helm/receipts-chart
+    yq e '.image.repository = env(IMAGE_NAME)' values.yaml -i
     yq e '.image.tag = env(TAG_NAME)' values.yaml -i
     #use sed or yq
     
@@ -26,14 +33,9 @@ helm -n cookingapp upgrade --install -f kubernetes/helm/postgres/values.yaml pos
 kubectl -n cookingapp apply -f kubernetes/helm/receipts-chart/secret.yaml
 kubectl -n cookingapp apply -f kubernetes/helm/receipts-chart/receipts-configmap.yaml
 
-#5- upgrade helm
-helm -n cookingapp upgrade --install -f kubernetes/helm/receipts-chart/values.yaml receipts-chart receipts-chart
-
 #6- Migrate DB
-
-
 chmod +x apply-tables.sh
 PGPASSWORD=supermegapassword ./apply-tables.sh
 
-
-exit
+#5- upgrade helm
+helm -n cookingapp upgrade --install -f kubernetes/helm/receipts-chart/values.yaml receipts-chart kubernetes/helm/receipts-chart/
