@@ -1,128 +1,42 @@
-# Cooking-Recipe
-A system that allow you to manage all your favorite cooking recipies
+# Cooking-Recipe-SRE
+This is the automation of the deployment and monitoring of the Cooking-Recipe app.
 
-Cooking Recipies is a .Net Core application with Blazor
+Postgres, Docker, Kubectl, Kind, Helm and Terraform have to be installed.
 
-This project  works as an recipe administrator, it work for home localhost.
+## App setup script
+This script will deploy the app and it's Postgres DB.
 
-## With docker compose
-You can use docker compose to try this app locally if you have it install
+First, change the host Database to save the cookingapp.example.com url to the right adress.
+```
+sudo code /etc/hosts
+``` 
+At the end of this file, add: 127.0.0.1   cookingapp.example.com
 
-Copy this file to a directory
+
+
+Then, create the kind cluster.
 
 ```
-version: '3.1'
-services:
-    postgres:
-        ports:
-          - "5434:5432"
-        image: postgres:latest
-        networks: 
-          - net
-        restart: unless-stopped
-        volumes:
-          - postgres-data:/var/lib/postgresql/data
-        environment:
-          TZ: "America/Sao_Paulo"
-          PGTZ: 'America/Sao_Paulo'
-          POSTGRES_USER: postgres
-          POSTGRES_DB: postgres
-          POSTGRES_PASSWORD: postgres
-
-    cooking:
-      image: haissamfawaz/cooking-recipe-image:latest
-      restart: always
-      networks: 
-        - net
-      ports:
-        - 8080:80
-volumes:
-  postgres-data:
-networks: 
-  net:
-    driver: bridge
+kind create cluster
 ```
 
-Than run 
-```bash
-docker-compose up
-```
-And docker will pull the public the latest image of the app on DockerHub https://hub.docker.com/repository/docker/haissamfawaz/cooking-recipe-image
-
-### Run the script to set up the database.  
-
-in this repository we have all scripts for the latest version
-https://github.com/HaissamHammoud/cooking-recipe-database-scripts
-
-coppy the files and run them inside de container with 
-
-```bash
-cat ./<script-name>.sql | docker exec -i <container-id> psql -U postgres -d postgres
-```
-
-And the app will be available on localhost:8080
-
-## With Docker Swarm
-
-First init swarm with
-```bash
-docker swarm init 
-```
-Than copy this file on a local directory:
-```
-version: '3.1'
-services:
-    postgres:
-        ports:
-          - "5434:5432"
-        image: postgres:latest
-        networks: 
-          - net
-        restart: unless-stopped
-        volumes:
-          - postgres-data:/var/lib/postgresql/data
-        environment:
-          TZ: "America/Sao_Paulo"
-          PGTZ: 'America/Sao_Paulo'
-          POSTGRES_USER: postgres
-          POSTGRES_DB: postgres
-          POSTGRES_PASSWORD: postgres
-
-    cooking:
-      image: haissamfawaz/cooking-recipe-image:latest
-      restart: always
-      networks: 
-        - net
-      ports:
-        - 8080:80
-volumes:
-  postgres-data:
-networks: 
-  net:
-    driver: overlay
-```
-
-### Run this command to deploy the app
+Then go to the Receipts directory and use this commands: 
 
 ```
-docker stack deploy --compose-file <filename>.yml cookapp
+chmod +x deploy.sh
+./deploy.sh
 ```
 
+The app will be available at https://cookingapp.example.com/
 
-Verify if the service starts correctly with
-```bash
-docker service ls
+The latest Docker image of the app will be published on DockerHub https://hub.docker.com/repository/docker/adrianstanete/receipts-image
+The image naming and tag will be based on the latest git branch and commit hash.
+
+### Cluster setup script
+This script will deploy Prometheus + Grafana for monitoring, and a DNS pod for debugging purposes. 
+
 ```
-
-### Run the script to set up the database.  
-
-in this repository we have all scripts for the latest version
-https://github.com/HaissamHammoud/cooking-recipe-database-scripts
-
-coppy the files and run them inside de container with 
-
-```bash
-cat ./<script-name>.sql | docker exec -i <container-id> psql -U postgres -d postgres
+cd kubernetes/helm
+chmod +x deploy.sh
+./deploy.sh
 ```
-
-And the app will be available on localhost:8080

@@ -29,7 +29,7 @@ global:
       username: "cookingapp"
       password: "test321"
       database: "cookingapp"
-      existingSecret: "my-secret"
+      existingSecret: "postgres-secret"
       secretKeys:
         adminPasswordKey: "ADMIN_PASSWORD"
         userPasswordKey: "USER_PASSWORD"
